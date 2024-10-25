@@ -10,7 +10,7 @@ class Livre
 			$dbname = "bibliotek";
 			$user = "root";
 			$password = "";
-			$pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+			$this->pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
 		} catch (Exception $e) {
 			die("Erreur : " . $e->getMessage());
 		}
@@ -18,23 +18,23 @@ class Livre
 
 	function ajouterLivre($titre, $auteur, $categorie, $annee_publication, $isbn)
 	{
-		$requete = $this->pdo->prepare("INSERT INTO livre (titre, auteur, editeur, annee_publication, isbn) VALUES (:titre, :auteur, :editeur, :annee_publication, :isbn)");
+		$requete = $this->pdo->prepare("INSERT INTO livres (titre, auteur, categorie, annee_publication, isbn) VALUES (:titre, :auteur, :categorie, :annee_publication, :isbn)");
 		$requete->bindParam(":titre", $titre);
 		$requete->bindParam(":auteur", $auteur);
-		$requete->bindParam(":editeur", $editeur);
+		$requete->bindParam(":categorie", $categorie);
 		$requete->bindParam(":annee_publication", $annee_publication);
 		$requete->bindParam(":isbn", $isbn);
 		$requete->execute();
 	}
 	function obtenirLivre()
 	{
-		$requete = $this->pdo->prepare("SELECT * FROM livre");
+		$requete = $this->pdo->prepare("SELECT * FROM livres");
 		$requete->execute();
-		$livres = $requete->fetchAll(PDO::FETCH_ASSOC);
+		return $requete->fetchAll(PDO::FETCH_ASSOC);
 	}
 	function supprimerLivre($id)
 	{
-		$requete = $this->pdo->prepare("DELETE FROM livre WHERE id = :id");
+		$requete = $this->pdo->prepare("DELETE FROM livres WHERE id = :id");
 		$requete->bindParam(":id", $id);
 		$requete->execute();
 	}

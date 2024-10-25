@@ -9,13 +9,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script type="text/javascript" src="src/Views/front.js"></script>
     <title>BiblioTek</title>
 </head>
 
 <body class="p-2">
     <nav class="navbar bg-primary" data-bs-theme="dark">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" href="#">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link active" href="?action=accueil">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link active" href="?action=index">Livres</a></li>
+            <li class="nav-item"><a class="nav-link active" href="?action=ajouter">Ajouter un livre</a></li>
         </ul>
     </nav>
 

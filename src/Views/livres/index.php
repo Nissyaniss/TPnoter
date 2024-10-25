@@ -7,7 +7,6 @@
 					<?php echo $livre['titre']; ?>
 				</h2>
 				<p class="card-text">
-					<?php echo $livre['description']; ?>
 					Auteur :
 					<?php echo $livre['auteur']; ?>
 					Catégorie :
