@@ -20,4 +20,12 @@ class LivreController
 
 		// Pas de vue dans la minute
 	}
+
+	function supprimer()
+	{
+		$livre = new Livre();
+		$livre->supprimerLivre($_GET['id']); //?? jsp
+
+		// Pas de vue dans la minute
+	}
 }
