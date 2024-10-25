@@ -26,6 +26,11 @@ class Livre
 		$requete->bindParam(":isbn", $isbn);
 		$requete->execute();
 	}
-	function obtenirLivre() {}
+	function obtenirLivre()
+	{
+		$requete = $this->pdo->prepare("SELECT * FROM livre");
+		$requete->execute();
+		$livres = $requete->fetchAll(PDO::FETCH_ASSOC);
+	}
 	function supprimerLivre() {}
 }
