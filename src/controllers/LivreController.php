@@ -12,4 +12,12 @@ class LivreController
 		$livre = new Livre();
 		$livre->ajouterLivre($titre, $auteur, $categorie, $annee_publication, $isbn);
 	}
+
+	function index()
+	{
+		$livre = new Livre();
+		$livres = $livre->obtenirLivre();
+
+		// Pas de vue dans la minute
+	}
 }
