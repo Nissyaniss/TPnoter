@@ -32,5 +32,10 @@ class Livre
 		$requete->execute();
 		$livres = $requete->fetchAll(PDO::FETCH_ASSOC);
 	}
-	function supprimerLivre() {}
+	function supprimerLivre($id)
+	{
+		$requete = $this->pdo->prepare("DELETE FROM livre WHERE id = :id");
+		$requete->bindParam(":id", $id);
+		$requete->execute();
+	}
 }
